@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="../assets/logo.svg" alt="">
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">Series</a>
+                </li>
+                <li>
+                    <a href="">My Liste</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <img src="../assets/search1.svg" alt=""> 
+            <img src="../assets/user.svg" alt="">
+        </div>
+       </header>
+       <section class="details_page">
+        <div class="details">
+            <div class="left_details">
+                <img  src="../assets/poster.ong.png" class="imgdetails" alt="">
+                <div class="likes">
+                    <img  src="../assets/movies/icons/like.svg" id="like" class="likeicon" alt="">
+                    <h1 id="likes" style="color: white;">533 </h1><h2 style="color: #16D0B1;">Likes</h2>
+                </div>
+            </div>
+            <div class="right_details">
+                <h1 class="title_details"></h1>
+                <p class="date" style="font-size: 23px; color: white; font-family: 'Source Sans 3', sans-serif; font-weight: 400;" ></p>
+                <p class="category_details"></p>
+                <img src="../assets/stars.svg" class="stars" alt="">
+                <h2>Overview</h2>
+                <p class="description_details"></p>
+            </div>
+        </div>
+       </section>
+       <footer>
+        <div class="footer_top">
+            <a href="">FAQ</a>
+            <a href="">Help Center</a>
+            <a href="">Terms of Use</a>
+            <a href="">Privacy</a>
+        </div>
+        <hr class="solid">
+        <div class="footer_bottom">
+            <img src="../assets/logo.svg" alt="">
+            <button class="footer_btn">join the community</button>
+        </div>
+       </footer>
+</body>
+<script>
+    const like = document.getElementById("like");
+    const originalSrc = "../assets/movies/icons/like.svg"; 
+    const toggledSrc = "../assets/movies/icons/likev2.svg"; 
+
+    like.addEventListener("click", () => {
+        const likecount = document.getElementById("likes");
+        let likeinteger = parseInt(likecount.textContent); 
+        
+        if (like.src.endsWith("like.svg")) {
+            like.src = toggledSrc; 
+            likeinteger++; 
+        } else {
+            like.src = originalSrc; 
+            likeinteger--; 
+        }
+        
+        likecount.textContent = likeinteger; 
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const title = localStorage.getItem("title");
+        const date = localStorage.getItem("Year");
+        const genre = localStorage.getItem("Genre");
+        const description = localStorage.getItem("Description");
+        const imgPath = localStorage.getItem("imgpath");
+
+        document.querySelector(".title_details").innerText = title ;
+        document.querySelector(".date").innerText = date ;
+        document.querySelector(".category_details").innerText = genre;
+        document.querySelector(".description_details").innerText = description;
+        document.querySelector(".imgdetails").src = imgPath;
+   
+    });
+</script>
+</html>
