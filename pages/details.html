@@ -12,28 +12,31 @@
         <nav>
             <ul>
                 <li>
-                    <a href="">Home</a>
+                    <a href="../index.html">Home</a>
                 </li>
                 <li>
-                    <a href="">Series</a>
+                    <a href="details.html">Details</a>
                 </li>
                 <li>
-                    <a href="">My Liste</a>
+                    <a href="myList.html">My liste</a>
                 </li>
             </ul>
         </nav>
         <div class="icons">
             <img src="../assets/search1.svg" alt=""> 
             <img src="../assets/user.svg" alt="">
+            <img src="../assets/movies/icons/moon.png" class="icon_dark" style="cursor: pointer; " alt="">
+
         </div>
        </header>
        <section class="details_page">
         <div class="details">
-            <div class="left_details">
+            <div class="left_details" style="position: relative;">
                 <img  src="../assets/poster.ong.png" class="imgdetails" alt="">
-                <div class="likes">
+                <img src="../assets/movies/icons/add.svg" class="add_icon" id="add_icon" alt="">
+                <div class="likess">
                     <img  src="../assets/movies/icons/like.svg" id="like" class="likeicon" alt="">
-                    <h1 id="likes" style="color: white;">533 </h1><h2 style="color: #16D0B1;">Likes</h2>
+                    <h1 id="likes" style="color: white;"> </h1><h2 style="color: #16D0B1;">Likes</h2>
                 </div>
             </div>
             <div class="right_details">
@@ -43,6 +46,60 @@
                 <img src="../assets/stars.svg" class="stars" alt="">
                 <h2>Overview</h2>
                 <p class="description_details"></p>
+            </div>
+        </div>
+        <h1 class="heading" style="font-size:2em; font-weight: bold;">Actors</h1>
+        <div class="actors">
+            <div class=" actor1 actor_card">
+                <img src="../assets/actors/actor1.svg" alt="">
+                <h1>Morfydd Clark</h1>
+                <p>Halbrand, Sauron</p>
+            </div>
+            <div class="actor2 actor_card">
+                <img src="../assets/actors/actor2.svg" alt="">
+                <h1>Morfydd Clark</h1>
+                <p>Halbrand, Sauron</p>
+            </div>
+            <div class="actor3 actor_card">
+                <img src="../assets/actors/actor3.svg" alt="">
+                <h1>Morfydd Clark</h1>
+                <p>Halbrand, Sauron</p>
+            </div>
+            <div class="actor4 actor_card">
+                <img src="../assets/actors/actor4.svg" alt="">
+                <h1>Morfydd Clark</h1>
+                <p>Halbrand, Sauron</p>
+            </div>
+            <div class="actor5 actor_card">
+                <img src="../assets/actors/actor5.svg" alt="">
+                <h1>Morfydd Clark</h1>
+                <p>Halbrand, Sauron</p>
+            </div>
+        </div>
+        <h1 class="heading" style="font-size:2em; font-weight: bold;">Add your Comment !</h1>
+        <div class="comment_section">
+            <form action="">
+                <label for="comment" class="form_label">Rate</label>
+                <img src="../assets/stars.svg" class="stars" alt="">
+                <label for="comment" class="form_label">Review</label>
+                <textarea name="comment" id="comment" placeholder="please set you comment here"></textarea>
+                <div class="submitbtn">
+                    <div class="btn_submit">Submit</div>
+                </div>
+            </form>
+            <div class="comment_list">
+                <div class="comment">   
+                    <h3>Ismail</h3>
+                    <p>Great potential killed by fan service and shallow characters
+                    </p>
+                    <img src="../assets/stars.svg" style="width: 30%;" alt="">
+                </div>
+                <div class="comment">
+                    <h3>Brahim</h3>
+                    <p>It starts like Alien, continues like Aliens, ends like Prometheus.
+                    </p>
+                    <img src="../assets/stars.svg" style="width: 30%;" alt="">
+                </div>
             </div>
         </div>
        </section>
@@ -64,36 +121,104 @@
     const like = document.getElementById("like");
     const originalSrc = "../assets/movies/icons/like.svg"; 
     const toggledSrc = "../assets/movies/icons/likev2.svg"; 
+    const selectedMovie = JSON.parse(localStorage.getItem("selectedMovie"));
+
+    const likecount = document.getElementById("likes");
+    let likeinteger = selectedMovie.likes ;
+    likecount.textContent = likeinteger;
+    if(like.src = localStorage.getItem("isliked") === "enable"){
+        like.src = toggledSrc ;
+    }else{
+        like.src = originalSrc ;
+    }
 
     like.addEventListener("click", () => {
-        const likecount = document.getElementById("likes");
-        let likeinteger = parseInt(likecount.textContent); 
-        
         if (like.src.endsWith("like.svg")) {
             like.src = toggledSrc; 
             likeinteger++; 
+            localStorage.setItem("isliked", "enable");
         } else {
             like.src = originalSrc; 
             likeinteger--; 
+            localStorage.setItem("isliked", "disable");
         }
-        
-        likecount.textContent = likeinteger; 
-    });
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const title = localStorage.getItem("title");
-        const date = localStorage.getItem("Year");
-        const genre = localStorage.getItem("Genre");
-        const description = localStorage.getItem("Description");
-        const imgPath = localStorage.getItem("imgpath");
 
-        document.querySelector(".title_details").innerText = title ;
-        document.querySelector(".date").innerText = date ;
-        document.querySelector(".category_details").innerText = genre;
-        document.querySelector(".description_details").innerText = description;
-        document.querySelector(".imgdetails").src = imgPath;
-   
+        localStorage.setItem("likecount", likeinteger);
+        likecount.textContent = likeinteger;
     });
+
+//////////////////////////////////////////////////////////////////////////////////////////
+        
+        console.log(selectedMovie);
+
+        document.querySelector(".title_details").innerText = selectedMovie.title ;
+        document.querySelector(".date").innerText = selectedMovie.releaseYear ;
+        document.querySelector(".category_details").innerText = selectedMovie.genre;
+        document.querySelector(".description_details").innerText = selectedMovie.description;
+        document.querySelector(".imgdetails").src = selectedMovie.imagepath;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+    const comment_list = document.querySelector(".comment_list");
+
+    document.querySelector(".btn_submit").addEventListener("click", function() {
+        
+        const textareaValue = document.getElementById("comment").value;
+        localStorage.setItem("comment", textareaValue);
+
+        const newdiv = document.createElement("div") ;
+        const comment = localStorage.getItem("comment");
+        newdiv.innerHTML = `<div class="comment">   
+                    <h3>Anonymous</h3>
+                    <p>${comment}
+                    </p>
+                    <img src="../assets/stars.svg" style="width: 30%;" alt="">
+                </div>`
+        comment_list.appendChild(newdiv);
+        
+        document.getElementById("comment").value = '';
+
+
+       
+
+    });
+//////////////////////////////////////////////////////////////////////////////////////////
+const add_icon = document.getElementById("add_icon");
+const add = "../assets/movies/icons/add.svg";
+const added = "../assets/movies/icons/added.svg";
+let mylist = JSON.parse(localStorage.getItem("mylist")) || [];
+let pas = mylist.length; 
+
+if (mylist.find(movie => movie.id === selectedMovie.id)) {
+    add_icon.src = added;
+} else {
+    add_icon.src = add;
+}
+
+add_icon.addEventListener("click", () => {
+    if (add_icon.src.endsWith("add.svg")) {
+        add_icon.src = added;
+            mylist.push(selectedMovie);
+            localStorage.setItem("mylist", JSON.stringify(mylist)); 
+    } else {
+        add_icon.src = add;
+    }
+});
+
+
+const darkbtn = document.querySelector(".icon_dark");
+if(localStorage.getItem("dark_mode") === "enable"){
+        document.body.classList.add("dark-mode");
+        darkbtn.src = "../assets/movies/icons/sun.png";
+
+    }else{
+        document.body.classList.remove("dark-mode");
+        darkbtn.src = "../assets/movies/icons/moon.png";
+        
+
+    }
+
+
+
 </script>
 </html>

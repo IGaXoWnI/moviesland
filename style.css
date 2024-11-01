@@ -1,11 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+:root {
+    --primary-color: white;
+    --secondary-color: black;
+}
 
+.dark-mode {
+    --primary-color: #282828;
+    --secondary-color: white;
+}
+
+body {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+header, footer, .main_section {
+    background-color: var(--primary-color);
+}
 *{
     padding: 0;
     margin: 0;
 }
-body{
-    font-family: 'Source Sans 3', sans-serif;
+
+body label {
+    color: var(--secondary-color) !important ; 
 }
 
 header{
@@ -83,6 +101,7 @@ nav ul li a {
     
 }
 .main_section{
+    background-color: var(--primary-color);
     height: 90vh;
     background-image: url(assets/hero.svg);
     background-position: center;
@@ -278,7 +297,8 @@ border: none;
 
 
 .details_page{
-    height: 170vh;
+    background-color: var(--primary-color);
+    height: 220vh;
     width: 100%;
 }
 
@@ -304,7 +324,7 @@ border: none;
     grid-column: 2/4;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .imgdetails{
@@ -312,7 +332,7 @@ border: none;
     width: 40%;
     border-radius: 24px;
 }
-.likes{
+.likess{
     display: flex;
     align-items: center;
     gap: 30px;
@@ -348,6 +368,139 @@ border: none;
     color: white;
 }
 
+.actors{
+    display: grid;
+    height: 45vh;
+    width: 90%;
+    margin: auto;
+   
+    grid-template-columns: repeat(5,auto);
+    gap: 20px;
+}
+.actor1 ,.actor2,
+.actor3,.actor4,
+.actor5{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    
+}
+
+.comment_section{
+    height: 60vh;
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+form{
+    height: 100%;
+    width: 100%;
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.comment_list{
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow-y: scroll;
+}
 
 
+.form_label{
+    width: 100%;
+    display: block; 
+    margin-bottom: 10px; 
+    font-size: 1.2em; 
+    color: #333;
+}
 
+#comment{
+    width: 70%; 
+    height: 150px; 
+    padding: 15px; 
+    font-size: 16px;
+    border: 1px solid grey; 
+    border-radius: 8px;
+    resize: none; 
+    outline: none; 
+}
+.submitbtn{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+.btn_submit{
+    background-color: #16D0B1;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: black;
+    font-weight: 500;
+}
+
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 12px;
+    width: 30vw;
+    height: 15vh;
+    border: none 1px black;
+    border-radius: 15px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+}
+.heart{
+    color: red;
+}
+
+
+.mylist{
+    background-color: var(--primary-color);
+    height: 100vh;
+    width: 90%;
+    margin: auto;
+}
+.list_section{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+.movie-item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.delete_icon{
+    position: absolute;
+    top: -15px ;
+    right: -12px;
+    cursor: pointer;
+}
+.add_icon{
+    position: absolute;
+    top: 30px;
+    right: 130px;
+}

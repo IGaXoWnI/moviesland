@@ -18,13 +18,14 @@
                 <a href="pages/details.html">details</a>
             </li>
             <li>
-                <a href="">My Liste</a>
+                <a href="pages/myList.html">My liste</a>
             </li>
         </ul>
     </nav>
     <div class="icons">
         <img src="assets/search1.svg" alt=""> 
         <img src="assets/user.svg" alt="">
+        <img src="assets/movies/icons/moon.png" class="icon_dark" style="cursor: pointer; " alt="">
     </div>
    </header>
    <section class="main_section">
@@ -48,34 +49,34 @@
         <div class="left_arrow" id="leftArrow">
             <img class="arrows" src=assets/movies/left_arrow.svg alt="Left Arrow">
         </div>
-        <div class=" trend pop trend1" id="1">
+        <div class=" trend movie trend1" id="1">
             <img src="assets/movies/the_rings_of_power.svg">
         </div>
-        <div class="trend pop trend2" id="2">
+        <div class="trend movie  trend2" id="2">
             <img src="assets/movies/prison_break.svg" alt="Prison Break">
         </div>
-        <div class="trend pop  trend3" id="3">
+        <div class="trend movie   trend3" id="3">
             <img src="assets/movies/vikings.svg" alt="Vikings">
         </div>
-        <div class="trend pop trend4" id="4">
+        <div class="trend movie  trend4" id="4">
             <img src="assets/movies/stagecoach.svg">
         </div>
-        <div class="trend pop  trend5" id="5">
+        <div class="trend  movie  trend5" id="5">
             <img src="assets/movies/meteor.svg">
         </div>
-        <div class="trend pop  trend6" id="6">
+        <div class="trend movie   trend6" id="6">
             <img src="assets/movies/venom.svg" alt="Venom">
         </div>
-        <div class="trend pop  trend6" id="7">
+        <div class="trend movie   trend6" id="7">
             <img src="assets/movies/terrifier3.svg" alt="Terrifier 3">
         </div>
-        <div class="trend pop trend6" id="8">
+        <div class="trend movie  trend6" id="8">
             <img src="assets/movies/the_substance.svg" alt="The Substance">
         </div>
-        <div class="trend pop  trend6" id="9">
+        <div class="trend movie   trend6" id="9">
             <img src="assets/movies/the_montecristo.svg" alt="The Count of Monte Cristo">
         </div>
-        <div class="trend pop  trend6" id="10">
+        <div class="trend movie   trend6" id="10">
             <img src="assets/movies/tulsa_king.svg"alt="Tulsa King">
         </div>
 
@@ -91,43 +92,43 @@
         </div>
     </div>
     <div class="popular_section">
-        <div class="pop pop1" id="1">
+        <div class="pop movie pop1" id="1">
             <img src="assets/movies/the_rings_of_power.svg" alt="">
             <h3>The rings of Power</h3>
         </div>
-        <div class="pop pop2" id="2">
+        <div class="pop movie pop2" id="2">
             <img src="assets/movies/prison_break.svg" alt="">
             <h3>Prison break</h3>
         </div>
-        <div class="pop pop3" id="3">
+        <div class="pop movie pop3" id="3">
             <img src="assets/movies/vikings.svg" alt="">
             <h3>Vikings</h3>
         </div>
-        <div class="pop pop4" id="4">
+        <div class="pop movie pop4" id="4">
             <img src="assets/movies/stagecoach.svg" alt="">
             <h3>Stagecoach</h3>
         </div>
-        <div class="pop pop5" id="5">
+        <div class="pop movie pop5" id="5">
             <img src="assets/movies/meteor.svg" alt="">
             <h3>Meteor</h3>
         </div>
-        <div class="pop pop6" id="6">
+        <div class="pop movie pop6" id="6">
             <img src="assets/movies/venom.svg" alt="">
             <h3>Venom</h3>
         </div>
-        <div class="pop pop7" id="7">
+        <div class="pop movie pop7" id="7">
             <img src="assets/movies/terrifier3.svg" alt="">
             <h3>Terrifier3</h3>
         </div>
-        <div class="pop pop8" id="8">
+        <div class="pop movie pop8" id="8">
             <img src="assets/movies/the_substance.svg" alt="">
             <h3>The Substance</h3>
         </div>
-        <div class="pop pop9" id="9">
+        <div class="pop movie pop9" id="9">
             <img src="assets/movies/the_montecristo.svg" alt="">
             <h3 style="text-align: center;">The Count Montecristo</h3>
         </div>
-        <div class="pop pop10" id="10">
+        <div class="pop movie pop10" id="10">
             <img src= "assets/movies/tulsa_king.svg" alt="">
             <h3>Tulsa King</h3>
         </div>
@@ -147,8 +148,28 @@
             <button class="footer_btn">join the community</button>
         </div>
        </footer>
-   
-   
 </body>
+<script>
+const darkbtn = document.querySelector(".icon_dark");
+darkbtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    if(document.body.classList.contains("dark-mode")){
+        localStorage.setItem("dark_mode" , "enable");
+        darkbtn.src = "assets/movies/icons/sun.png"
+    }else{
+        darkbtn.src = "assets/movies/icons/moon.png"
+        localStorage.setItem("dark_mode" , "enable");
+    }
+
+    
+});
+
+if(localStorage.getItem("dark_mode") === "enable"){
+    document.body.classList.add("dark-mode");
+}else{
+    document.body.classList.remove("dark-mode");
+}
+
+</script>
 <script src="script.js"></script>
 </html>

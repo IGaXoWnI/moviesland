@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>My list</title>
+</head>
+<body>
+    <header>
+        <img src="../assets/logo.svg" alt="">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="details.html">Details</a></li>
+                <li><a href="myList.html">My list</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <img src="../assets/search1.svg" alt=""> 
+            <img src="../assets/user.svg" alt="">
+            <img src="../assets/movies/icons/moon.png" class="icon_dark" style="cursor: pointer; " alt="">
+
+        </div>
+    </header>
+    <section class="mylist">
+        <h1 style="text-align: center; margin-top: 20px;">My List</h1>
+        <div class="list_section" style="margin-top: 50px;">
+            <div class="list"></div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer_top">
+            <a href="">FAQ</a>
+            <a href="">Help Center</a>
+            <a href="">Terms of Use</a>
+            <a href="">Privacy</a>
+        </div>
+        <hr class="solid">
+        <div class="footer_bottom">
+            <img src="../assets/logo.svg" alt="">
+            <button class="footer_btn">Join the community</button>
+        </div>
+    </footer>
+</body>
+<script>
+    const likedMovie = JSON.parse(localStorage.getItem("mylist"));
+    const div = document.querySelector(".list");
+    const movies = JSON.parse(localStorage.getItem("moviesData"));
+    const movies_length = movies.length;
+    let array = new Array(movies_length);
+
+    for (let i = 0; i < movies_length; i++) {
+        array[i] = likedMovie[i];
+    }
+
+    const filteredArray = array.filter(Boolean);
+
+    filteredArray.forEach((movie, index) => {
+        let div2 = document.createElement("div");
+        div2.classList.add("movie-item");  
+
+        div2.innerHTML = `
+            <img src="${movie.imagepath}" class="list_img">
+            <h3 class="list_title" style="text-align: center">${movie.title}</h3>
+            <img src="../assets/movies/icons/delete.svg" class="delete_icon" alt="Delete" data-index="${index}">
+        `;
+
+        div.appendChild(div2);
+    });
+
+    document.querySelectorAll(".delete_icon").forEach(icon => {
+        icon.addEventListener("click", (e) => {
+            const index = e.target.getAttribute("data-index");
+
+            filteredArray.splice(index, 1);
+            localStorage.setItem("mylist", JSON.stringify(filteredArray));
+
+            location.reload();
+        });
+    });
+
+    if(localStorage.getItem("dark_mode") === "enable"){
+    document.body.classList.add("dark-mode");
+}else{
+    document.body.classList.remove("dark-mode");
+}
+</script>
+</html>
