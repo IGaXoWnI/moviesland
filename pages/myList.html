@@ -9,20 +9,29 @@
 <body>
     <header>
         <img src="../assets/logo.svg" alt="">
-        <nav>
+        <nav class="nav_menu">
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="details.html">Details</a></li>
-                <li><a href="myList.html">My list</a></li>
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="details.html">details</a>
+                </li>
+                <li>
+                    <a href="myList.html">My liste</a>
+                </li>
             </ul>
         </nav>
         <div class="icons">
-            <img src="../assets/search1.svg" alt=""> 
             <img src="../assets/user.svg" alt="">
             <img src="../assets/movies/icons/moon.png" class="icon_dark" style="cursor: pointer; " alt="">
-
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </header>
+       </header>
     <section class="mylist">
         <h1 style="text-align: center; margin-top: 20px;">My List</h1>
         <div class="list_section" style="margin-top: 50px;">
@@ -80,10 +89,37 @@
         });
     });
 
-    if(localStorage.getItem("dark_mode") === "enable"){
-    document.body.classList.add("dark-mode");
-}else{
-    document.body.classList.remove("dark-mode");
-}
+   
+</script>
+<script>
+    const icon = document.querySelector(".icon_dark");
+    icon.onclick = function() {
+    if(icon.src.endsWith("moon.png")){
+        document.body.classList.add("dark_theme")
+        icon.src = "../assets/movies/icons/sun.png"
+        localStorage.setItem("isdark" , "enabled");
+    }
+    else{
+        document.body.classList.remove("dark_theme")
+        icon.src = "../assets/movies/icons/moon.png"
+        localStorage.setItem("isdark" , "disabled");
+
+    }
+};
+    if(localStorage.getItem("isdark") === "enabled"){
+        document.body.classList.add("dark_theme");
+        icon.src = "../assets/movies/icons/sun.png"
+    }else{
+        document.body.classList.remove("dark_theme");
+        icon.src = "../assets/movies/icons/moon.png"
+    }
+</script>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+const nav_menu = document.querySelector(".nav_menu");
+hamburger.addEventListener("click", () => {
+   hamburger.classList.toggle("active");
+   nav_menu.classList.toggle("active");
+}); 
 </script>
 </html>

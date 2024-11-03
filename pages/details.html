@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
     <header>
         <img src="../assets/logo.svg" alt="">
-        <nav>
+        <nav class="nav_menu">
             <ul>
                 <li>
                     <a href="../index.html">Home</a>
                 </li>
                 <li>
-                    <a href="details.html">Details</a>
+                    <a href="details.html">details</a>
                 </li>
                 <li>
                     <a href="myList.html">My liste</a>
@@ -23,10 +24,13 @@
             </ul>
         </nav>
         <div class="icons">
-            <img src="../assets/search1.svg" alt=""> 
             <img src="../assets/user.svg" alt="">
             <img src="../assets/movies/icons/moon.png" class="icon_dark" style="cursor: pointer; " alt="">
-
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
        </header>
        <section class="details_page">
@@ -43,7 +47,7 @@
                 <h1 class="title_details"></h1>
                 <p class="date" style="font-size: 23px; color: white; font-family: 'Source Sans 3', sans-serif; font-weight: 400;" ></p>
                 <p class="category_details"></p>
-                <img src="../assets/stars.svg" class="stars" alt="">
+                <img src="../assets/stars.svg" class="starsimg" alt="">
                 <h2>Overview</h2>
                 <p class="description_details"></p>
             </div>
@@ -80,7 +84,14 @@
         <div class="comment_section">
             <form action="">
                 <label for="comment" class="form_label">Rate</label>
-                <img src="../assets/stars.svg" class="stars" alt="">
+                <div class="stars">
+                    
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
                 <label for="comment" class="form_label">Review</label>
                 <textarea name="comment" id="comment" placeholder="please set you comment here"></textarea>
                 <div class="submitbtn">
@@ -102,6 +113,49 @@
                 </div>
             </div>
         </div>
+        <h1 style="text-align: center; font-weight: bold; font-size: 30px; margin-top: 30px;">To Watch</h1>
+        <div class="towatch">
+            <div class="pop movie pop1" id="1">
+                <img src="../assets/movies/the_rings_of_power.svg" alt="">
+                <h3>The rings Power</h3>
+            </div>
+            <div class="pop movie pop2" id="2">
+                <img src="../assets/movies/prison_break.svg" alt="">
+                <h3>Prison break</h3>
+            </div>
+            <div class="pop movie pop3" id="3">
+                <img src="../assets/movies/vikings.svg" alt="">
+                <h3>Vikings</h3>
+            </div>
+            <div class="pop movie pop4" id="4">
+                <img src="../assets/movies/stagecoach.svg" alt="">
+                <h3>Stagecoach</h3>
+            </div>
+            <div class="pop movie pop5" id="5">
+                <img src="../assets/movies/meteor.svg" alt="">
+                <h3>Meteor</h3>
+            </div>
+            <div class="pop movie pop6" id="6">
+                <img src="../assets/movies/venom.svg" alt="">
+                <h3>Venom</h3>
+            </div>
+            <div class="pop movie pop7" id="7">
+                <img src="../assets/movies/terrifier3.svg" alt="">
+                <h3>Terrifier3</h3>
+            </div>
+            <div class="pop movie pop8" id="8">
+                <img src="../assets/movies/the_substance.svg" alt="">
+                <h3>The Substance</h3>
+            </div>
+            <div class="pop movie pop9" id="9">
+                <img src="../assets/movies/the_montecristo.svg" alt="">
+                <h3 style="text-align: center;">The Montecristo</h3>
+            </div>
+            <div class="pop movie pop10" id="10">
+                <img src= "../assets/movies/tulsa_king.svg" alt="">
+                <h3>Tulsa King</h3>
+            </div>
+        </div>
        </section>
        <footer>
         <div class="footer_top">
@@ -109,6 +163,7 @@
             <a href="">Help Center</a>
             <a href="">Terms of Use</a>
             <a href="">Privacy</a>
+
         </div>
         <hr class="solid">
         <div class="footer_bottom">
@@ -168,11 +223,16 @@
 
         const newdiv = document.createElement("div") ;
         const comment = localStorage.getItem("comment");
+        const rating = localStorage.getItem("rating");
+        console.log(rating);
+        
         newdiv.innerHTML = `<div class="comment">   
                     <h3>Anonymous</h3>
+                 <i style="color: gold;" class="fa-solid fa-star"><span class="rating_span">${rating}</span></i>
                     <p>${comment}
                     </p>
-                    <img src="../assets/stars.svg" style="width: 30%;" alt="">
+                    
+
                 </div>`
         comment_list.appendChild(newdiv);
         
@@ -204,21 +264,82 @@ add_icon.addEventListener("click", () => {
         add_icon.src = add;
     }
 });
-
-
-const darkbtn = document.querySelector(".icon_dark");
-if(localStorage.getItem("dark_mode") === "enable"){
-        document.body.classList.add("dark-mode");
-        darkbtn.src = "../assets/movies/icons/sun.png";
-
-    }else{
-        document.body.classList.remove("dark-mode");
-        darkbtn.src = "../assets/movies/icons/moon.png";
-        
+</script>
+<script>
+    const icon = document.querySelector(".icon_dark");
+    icon.onclick = function() {
+    if(icon.src.endsWith("moon.png")){
+        document.body.classList.add("dark_theme")
+        icon.src = "../assets/movies/icons/sun.png"
+        localStorage.setItem("isdark" , "enabled");
+    }
+    else{
+        document.body.classList.remove("dark_theme")
+        icon.src = "../assets/movies/icons/moon.png"
+        localStorage.setItem("isdark" , "disabled");
 
     }
-
-
-
+};
+    if(localStorage.getItem("isdark") === "enabled"){
+        document.body.classList.add("dark_theme");
+        icon.src = "../assets/movies/icons/sun.png"
+    }else{
+        document.body.classList.remove("dark_theme");
+        icon.src = "../assets/movies/icons/moon.png"
+    }
 </script>
+<script>
+   function scrollbyme(){
+    const towatch = document.querySelector(".towatch");
+    let scrollAmount = 0 ;
+    setInterval(()=>{
+        towatch.scrollBy(
+            {
+                left:1,
+                behavior :"smooth"
+            },
+        )
+        scrollAmount =+1 ;
+
+        if(scrollAmount>=towatch.scrollWidth - towatch.clientWidth){
+            towatch.scrollTo(
+                {
+                    left : 0 ,
+                    behavior :"smooth",
+                }
+            )
+            scrollAmount =0 ;
+        }
+    },10)
+   }
+   scrollbyme() ;
+</script>
+<script>
+    const stars = document.querySelectorAll(".fa-star");
+    stars.forEach((star , index) =>{
+        star.addEventListener("click" , ()=>{
+            localStorage.setItem("rating" , index+1)
+            stars.forEach((star , index2)=>{     
+               
+                           
+               if(index>=index2){
+                star.classList.add("active");
+               }else{
+                star.classList.remove("active");
+               }
+                
+            })
+            
+        })
+    })
+</script>
+<script>
+        const hamburger = document.querySelector(".hamburger");
+    const nav_menu = document.querySelector(".nav_menu");
+    hamburger.addEventListener("click", () => {
+       hamburger.classList.toggle("active");
+       nav_menu.classList.toggle("active");
+    }); 
+</script>
+
 </html>

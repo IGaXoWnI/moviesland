@@ -9,7 +9,7 @@
 <body>
    <header>
     <img src="assets/logo.svg" alt="">
-    <nav>
+    <nav class="nav_menu">
         <ul>
             <li>
                 <a href="">Home</a>
@@ -23,118 +23,124 @@
         </ul>
     </nav>
     <div class="icons">
-        <img src="assets/search1.svg" alt=""> 
         <img src="assets/user.svg" alt="">
         <img src="assets/movies/icons/moon.png" class="icon_dark" style="cursor: pointer; " alt="">
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </div>
    </header>
-   <section class="main_section">
-    <div class="left_section">
-        <h1 style="color: white;">Spider-Man: No Way Home</h1>
-        <p  style="color: white;">Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.</p>
-        <div class="btns">
-            <button class="btn1">Watch now</button>
-            <button class="btn2">Watch Trailer</button>
+  <section class="home_page">
+    <section class="main_section">
+        <div class="left_section">
+            <h1 style="color: white;">Spider-Man: No Way Home</h1>
+            <p  style="color: white;">Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.</p>
+            <div class="btns">
+                <button class="btn1">Watch now</button>
+                <button class="btn2">Watch Trailer</button>
+            </div>
         </div>
-    </div>
-    <div class="right_section">
-        <img src="assets/poster.ong.png" alt="">
-    </div>
-   </section>
-   <section class="second_section">
-    <div class="heading">
-        <h1>Trending <span>Today</span></h1>
-    </div>
-    <div class="trend_section">
-        <div class="left_arrow" id="leftArrow">
-            <img class="arrows" src=assets/movies/left_arrow.svg alt="Left Arrow">
+        <div class="right_section">
+            <img src="assets/poster.ong.png" alt="">
         </div>
-        <div class=" trend movie trend1" id="1">
-            <img src="assets/movies/the_rings_of_power.svg">
+       </section>
+       <section class="second_section">
+        <div class="heading">
+            <h1>Trending <span>Today</span></h1>
         </div>
-        <div class="trend movie  trend2" id="2">
-            <img src="assets/movies/prison_break.svg" alt="Prison Break">
+        <div class="trend_section">
+            <div class="left_arrow" id="leftArrow">
+                <img class="arrows" src=assets/movies/left_arrow.svg alt="Left Arrow">
+            </div>
+            <div class=" trend movie trend1" id="1">
+                <img src="assets/movies/the_rings_of_power.svg">
+            </div>
+            <div class="trend movie  trend2" id="2">
+                <img src="assets/movies/prison_break.svg" alt="Prison Break">
+            </div>
+            <div class="trend movie   trend3" id="3">
+                <img src="assets/movies/vikings.svg" alt="Vikings">
+            </div>
+            <div class="trend movie  trend4" id="4">
+                <img src="assets/movies/stagecoach.svg">
+            </div>
+            <div class="trend  movie  trend5" id="5">
+                <img src="assets/movies/meteor.svg">
+            </div>
+            <div class="trend movie   trend6" id="6">
+                <img src="assets/movies/venom.svg" alt="Venom">
+            </div>
+            <div class="trend movie   trend6" id="7">
+                <img src="assets/movies/terrifier3.svg" alt="Terrifier 3">
+            </div>
+            <div class="trend movie  trend6" id="8">
+                <img src="assets/movies/the_substance.svg" alt="The Substance">
+            </div>
+            <div class="trend movie   trend6" id="9">
+                <img src="assets/movies/the_montecristo.svg" alt="The Count of Monte Cristo">
+            </div>
+            <div class="trend movie   trend6" id="10">
+                <img src="assets/movies/tulsa_king.svg"alt="Tulsa King">
+            </div>
+    
+            <div class="right_arrow" id="rightArrow">
+                <img class="arrows" src="assets/movies/right_arrow.svg" alt="Right Arrow">
+            </div>
         </div>
-        <div class="trend movie   trend3" id="3">
-            <img src="assets/movies/vikings.svg" alt="Vikings">
+        <div class="heading">
+            <h1>Popular <span>Now</span></h1>
+            <div class="inputandbtn">
+                <input type="text" class="input_popular" id = "input_popular" placeholder="Search for a movie .....">
+                <button class="search_btn">Search</button>
+            </div>
         </div>
-        <div class="trend movie  trend4" id="4">
-            <img src="assets/movies/stagecoach.svg">
+        <div class="popular_section">
+            <div class="pop movie pop1"  id="1">
+                <img src="assets/movies/the_rings_of_power.svg" alt="">
+                <h3 class="header_movie">The rings </h3>
+            </div>
+            <div class="pop movie pop2" id="2">
+                <img src="assets/movies/prison_break.svg" alt="">
+                <h3 class="header_movie">Prisonbreak</h3>
+            </div>
+            <div class="pop movie pop3" id="3">
+                <img src="assets/movies/vikings.svg" alt="">
+                <h3 class="header_movie">Vikings</h3>
+            </div>
+            <div class="pop movie pop4" id="4">
+                <img src="assets/movies/stagecoach.svg" alt="">
+                <h3 class="header_movie">Stagecoach</h3>
+            </div>
+            <div class="pop movie pop5" id="5">
+                <img src="assets/movies/meteor.svg" alt="">
+                <h3 class="header_movie">Meteor</h3>
+            </div>
+            <div class="pop movie pop6" id="6">
+                <img src="assets/movies/venom.svg" alt="">
+                <h3 class="header_movie">Venom</h3>
+            </div>
+            <div class="pop movie pop7" id="7">
+                <img src="assets/movies/terrifier3.svg" alt="">
+                <h3 class="header_movie">Terrifier3</h3>
+            </div>
+            <div class="pop movie pop8" id="8">
+                <img src="assets/movies/the_substance.svg" alt="">
+                <h3 class="header_movie">The Subs</h3>
+            </div>
+            <div class="pop movie pop9" id="9">
+                <img src="assets/movies/the_montecristo.svg" alt="">
+                <h3 class="header_movie" style="text-align: center;">Montecristo</h3>
+            </div>
+            <div class="pop movie pop10" id="10">
+                <img src= "assets/movies/tulsa_king.svg" alt="">
+                <h3 class="header_movie">TulsaKing</h3>
+            </div>
+    
         </div>
-        <div class="trend  movie  trend5" id="5">
-            <img src="assets/movies/meteor.svg">
-        </div>
-        <div class="trend movie   trend6" id="6">
-            <img src="assets/movies/venom.svg" alt="Venom">
-        </div>
-        <div class="trend movie   trend6" id="7">
-            <img src="assets/movies/terrifier3.svg" alt="Terrifier 3">
-        </div>
-        <div class="trend movie  trend6" id="8">
-            <img src="assets/movies/the_substance.svg" alt="The Substance">
-        </div>
-        <div class="trend movie   trend6" id="9">
-            <img src="assets/movies/the_montecristo.svg" alt="The Count of Monte Cristo">
-        </div>
-        <div class="trend movie   trend6" id="10">
-            <img src="assets/movies/tulsa_king.svg"alt="Tulsa King">
-        </div>
-
-        <div class="right_arrow" id="rightArrow">
-            <img class="arrows" src="assets/movies/right_arrow.svg" alt="Right Arrow">
-        </div>
-    </div>
-    <div class="heading">
-        <h1>Popular <span>Now</span></h1>
-        <div class="inputandbtn">
-            <input type="text" class="input_popular" id = "input_popular" placeholder="Search for a movie .....">
-            <button class="search_btn">Search</button>
-        </div>
-    </div>
-    <div class="popular_section">
-        <div class="pop movie pop1" id="1">
-            <img src="assets/movies/the_rings_of_power.svg" alt="">
-            <h3>The rings of Power</h3>
-        </div>
-        <div class="pop movie pop2" id="2">
-            <img src="assets/movies/prison_break.svg" alt="">
-            <h3>Prison break</h3>
-        </div>
-        <div class="pop movie pop3" id="3">
-            <img src="assets/movies/vikings.svg" alt="">
-            <h3>Vikings</h3>
-        </div>
-        <div class="pop movie pop4" id="4">
-            <img src="assets/movies/stagecoach.svg" alt="">
-            <h3>Stagecoach</h3>
-        </div>
-        <div class="pop movie pop5" id="5">
-            <img src="assets/movies/meteor.svg" alt="">
-            <h3>Meteor</h3>
-        </div>
-        <div class="pop movie pop6" id="6">
-            <img src="assets/movies/venom.svg" alt="">
-            <h3>Venom</h3>
-        </div>
-        <div class="pop movie pop7" id="7">
-            <img src="assets/movies/terrifier3.svg" alt="">
-            <h3>Terrifier3</h3>
-        </div>
-        <div class="pop movie pop8" id="8">
-            <img src="assets/movies/the_substance.svg" alt="">
-            <h3>The Substance</h3>
-        </div>
-        <div class="pop movie pop9" id="9">
-            <img src="assets/movies/the_montecristo.svg" alt="">
-            <h3 style="text-align: center;">The Count Montecristo</h3>
-        </div>
-        <div class="pop movie pop10" id="10">
-            <img src= "assets/movies/tulsa_king.svg" alt="">
-            <h3>Tulsa King</h3>
-        </div>
-
-    </div>
-   </section>
+       </section>
+  </section>
     <footer>
         <div class="footer_top">
             <a href="">FAQ</a>
@@ -150,25 +156,7 @@
        </footer>
 </body>
 <script>
-const darkbtn = document.querySelector(".icon_dark");
-darkbtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    if(document.body.classList.contains("dark-mode")){
-        localStorage.setItem("dark_mode" , "enable");
-        darkbtn.src = "assets/movies/icons/sun.png"
-    }else{
-        darkbtn.src = "assets/movies/icons/moon.png"
-        localStorage.setItem("dark_mode" , "enable");
-    }
 
-    
-});
-
-if(localStorage.getItem("dark_mode") === "enable"){
-    document.body.classList.add("dark-mode");
-}else{
-    document.body.classList.remove("dark-mode");
-}
 
 </script>
 <script src="script.js"></script>

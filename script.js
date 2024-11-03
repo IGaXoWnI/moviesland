@@ -91,16 +91,26 @@ const movies = [
         likes :56789
     }
 ];
-
-
-
-
 localStorage.setItem("moviesData" , JSON.stringify(movies)) ;
 
 
 
 
+const icon = document.querySelector(".icon_dark");
 
+icon.onclick = function() {
+    if(icon.src.endsWith("moon.png")){
+        document.body.classList.add("dark_theme")
+        icon.src = "assets/movies/icons/sun.png"
+        localStorage.setItem("isdark" , "enabled");
+    }
+    else{
+        document.body.classList.remove("dark_theme")
+        icon.src = "assets/movies/icons/moon.png"
+        localStorage.setItem("isdark" , "disabled");
+
+    }
+};
 
 
 
@@ -206,7 +216,31 @@ function filtercards(){
 
 
 
+    const hamburger = document.querySelector(".hamburger");
+    const nav_menu = document.querySelector(".nav_menu");
+    hamburger.addEventListener("click", () => {
+       hamburger.classList.toggle("active");
+       nav_menu.classList.toggle("active");
+    }); 
 
+
+    ///////////////////
+    
+    const filterInput = document.getElementById("filterInput");
+
+  filterInput.addEventListener("change" , function(){
+    filterInput2.value = "";
+    const filterValue = filterInput.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(function(card){
+      const color = card.getAttribute("data-color").toLowerCase();
+      if(filterValue === ""|| color === filterValue){
+        card.classList.remove("hidden");
+      }else{
+        card.classList.add("hidden");
+      }
+    })
+  })
 
 
 

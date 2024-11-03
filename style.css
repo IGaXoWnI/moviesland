@@ -4,7 +4,7 @@
     --secondary-color: black;
 }
 
-.dark-mode {
+.dark_theme {
     --primary-color: #282828;
     --secondary-color: white;
 }
@@ -12,6 +12,7 @@
 body {
     color: var(--secondary-color);
     background-color: var(--primary-color);
+    font-family: 'Roboto', sans-serif;;
 }
 
 header, footer, .main_section {
@@ -39,6 +40,23 @@ footer{
     width: 100%;
     background-color: #032442;
 }
+.hamburger{
+    display: none;
+    cursor: pointer;
+  }
+  .bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    -webkit-transition: all 0.3s ease-in-out ;
+    transition: all 0.3s ease-in-out ;
+  }
+  .bar_color{
+    background-color: white !important;
+  }
+
 .footer_top{
     height: 50%;
     width: 80%;
@@ -94,15 +112,24 @@ nav ul li a {
     text-decoration: none;
     color: white;
 } 
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 .icons img{
     height: 45px;
     width: 45px;
     object-fit: cover;
     
 }
+.home_page{
+    height: 260vh;
+}
 .main_section{
     background-color: var(--primary-color);
     height: 90vh;
+    width: 100%;
     background-image: url(assets/hero.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -298,7 +325,7 @@ border: none;
 
 .details_page{
     background-color: var(--primary-color);
-    height: 220vh;
+    height: 265vh;
     width: 100%;
 }
 
@@ -342,7 +369,7 @@ border: none;
     width: 60px;
 }
 
-.stars{
+.starsimg{
     height: 80px;
     width: 180px;
 }
@@ -423,6 +450,23 @@ form{
     font-size: 1.2em; 
     color: #333;
 }
+.stars{
+    display: flex;
+    gap: 10px;
+}
+.stars i {
+    color: grey;
+}
+.stars i.active{
+    color: gold;
+}
+.rating_span{
+    color: black;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+
+}
 
 #comment{
     width: 70%; 
@@ -434,6 +478,7 @@ form{
     resize: none; 
     outline: none; 
 }
+
 .submitbtn{
     width: 70%;
     display: flex;
@@ -464,6 +509,18 @@ form{
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
 }
+
+
+.towatch{
+    width: 90%;
+    margin: auto;
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow: hidden;
+}
+
 .heart{
     color: red;
 }
@@ -503,4 +560,197 @@ form{
     position: absolute;
     top: 30px;
     right: 130px;
+}
+@media (max-width: 1150px) {
+    .towatch{
+        gap: 80px;
+    }
+}
+
+
+@media (max-width: 950px) {
+    .main_section{
+        background-color: var(--primary-color);
+        height: 170vh;
+        background-image: url(assets/hero.svg); 
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2 , 1fr);
+    
+    }
+    .left_section{
+        grid-column: 1;
+        grid-row: 1/2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        width: 90%;
+    margin: auto;    }
+    .left_section h1  {
+        text-align: center;
+    }
+    .left_section p  {
+        text-align: center;
+    }
+    .right_section{
+        grid-column: 1;
+        grid-row: 2/3;
+    }
+    .actors{
+        display: grid;
+        height: 80vh;
+        width: 90%;
+        margin: auto;
+       
+        grid-template-columns: repeat(3,auto);
+        grid-template-rows: repeat(2,auto);
+        gap: 20px;
+    }
+    .comment_section{
+        height: 120vh;
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+    form{
+
+        grid-column: 1/2;
+        grid-row: 1/2;
+
+    }
+    .comment_list{
+        grid-column: 1/3;
+        grid-row: 2/3;
+
+    }
+    .details_page{
+        height: 370vh;
+
+    }
+    .comment{
+
+        width: 80vw;
+
+    }
+
+   
+    
+    .towatch{
+        gap: 110px;
+     }
+
+     .home_page{
+        height: 430vh;
+     }
+     .popular_section{
+        padding-left: 60px;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(4,1fr);
+    }
+    .popular_section img{
+        height: auto;
+        width: auto;
+    }
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 630px) {
+    .details_page{
+        height: 410vh;
+
+    }
+
+.btns{
+    gap: 40px;
+}
+.header_movie{
+    font-size: 17px;
+}
+.trend{
+    height: 40vh;
+    width: 30vw;
+}
+.left_details{
+    justify-content: space-around;
+}
+.imgdetails{
+    height: 30vh;
+    width: auto;
+}
+.actors{
+    display: grid;
+    height: 130vh;
+    width: 90%;
+    margin: auto;
+   
+    grid-template-columns: repeat(2,auto);
+    grid-template-rows: repeat(3,auto);
+    gap: 20px;
+}
+.towatch{
+   gap: 110px;
+}
+
+.hamburger{
+    display: block;
+  }
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .nav_menu{
+    background-color: #042443;
+    height: 10vh;
+    position: absolute;
+    left: -100%;
+    top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    z-index: 1;
+  } 
+  .nav_item{
+    margin: 16px 0;
+  }
+ 
+  .nav_menu.active{
+    left: 0;
+  }
+
+
+  .home_page{
+    height: 500vh;
+ }
+ .popular_section{
+    padding-left: 100px;
+    width: 90%;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5,1fr);
+    gap: 60px;
+}
+.popular_section img{
+    height: auto;
+    width: auto;
+}
 }
