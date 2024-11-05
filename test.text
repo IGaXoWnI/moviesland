@@ -1,0 +1,10 @@
+
+    
+const brefbtn  =  document.getElementById("brefbtn");
+brefbtn.addEventListener("click" , ()=>{
+    const brefh1 = document.querySelector(".brefh1");
+   let text = "hi hamza";
+   brefh1.textContent = text;
+    brefh1.style.color = "red";
+   
+})

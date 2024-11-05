@@ -24,7 +24,7 @@
             </ul>
         </nav>
         <div class="icons">
-            <img src="../assets/user.svg" alt="">
+            <img src="../assets/user.svg" alt="" >
             <img src="../assets/movies/icons/moon.png" class="icon_dark" style="cursor: pointer; " alt="">
             <div class="hamburger">
                 <span class="bar"></span>
@@ -117,11 +117,11 @@
         <div class="towatch">
             <div class="pop movie pop1" id="1">
                 <img src="../assets/movies/the_rings_of_power.svg" alt="">
-                <h3>The rings Power</h3>
+                <h3>Therings </h3>
             </div>
             <div class="pop movie pop2" id="2">
                 <img src="../assets/movies/prison_break.svg" alt="">
-                <h3>Prison break</h3>
+                <h3>Prisonbreak</h3>
             </div>
             <div class="pop movie pop3" id="3">
                 <img src="../assets/movies/vikings.svg" alt="">
@@ -173,6 +173,8 @@
        </footer>
 </body>
 <script>
+    ////////////////////////////////////////////////////////////////////////////////////////// Likes 
+
     const like = document.getElementById("like");
     const originalSrc = "../assets/movies/icons/like.svg"; 
     const toggledSrc = "../assets/movies/icons/likev2.svg"; 
@@ -181,6 +183,7 @@
     const likecount = document.getElementById("likes");
     let likeinteger = selectedMovie.likes ;
     likecount.textContent = likeinteger;
+
     if(like.src = localStorage.getItem("isliked") === "enable"){
         like.src = toggledSrc ;
     }else{
@@ -202,7 +205,7 @@
         likecount.textContent = likeinteger;
     });
 
-//////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////// load sata to my detail page
         
         console.log(selectedMovie);
 
@@ -213,43 +216,57 @@
         document.querySelector(".imgdetails").src = selectedMovie.imagepath;
 
 
-//////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////// comment 
+function loadCommentaire() {
     const comment_list = document.querySelector(".comment_list");
 
-    document.querySelector(".btn_submit").addEventListener("click", function() {
-        
-        const textareaValue = document.getElementById("comment").value;
-        localStorage.setItem("comment", textareaValue);
+    let comments = JSON.parse(localStorage.getItem("comments")) ;
 
-        const newdiv = document.createElement("div") ;
-        const comment = localStorage.getItem("comment");
-        const rating = localStorage.getItem("rating");
-        console.log(rating);
-        
-        newdiv.innerHTML = `<div class="comment">   
-                    <h3>Anonymous</h3>
-                 <i style="color: gold;" class="fa-solid fa-star"><span class="rating_span">${rating}</span></i>
-                    <p>${comment}
-                    </p>
-                    
-
-                </div>`
+    comments.forEach(({ text, rating }) => {
+        const newdiv = document.createElement("div");
+        newdiv.innerHTML = `
+            <div class="comment">   
+                <h3>Anonymous</h3>
+                <i style="color: gold;" class="fa-solid fa-star"><span class="rating_span">${rating}</span></i>
+                <p>${text}</p>
+            </div>`;
         comment_list.appendChild(newdiv);
-        
-        document.getElementById("comment").value = '';
-
-
-       
-
     });
-//////////////////////////////////////////////////////////////////////////////////////////
+}
+
+loadCommentaire();
+
+document.querySelector(".btn_submit").addEventListener("click", function() {
+    const textareaValue = document.getElementById("comment").value;
+    const rating = localStorage.getItem("rating") ;  
+
+    
+    const newComment = { text: textareaValue, rating };
+
+    let comments = JSON.parse(localStorage.getItem("comments"));
+    
+    comments.push(newComment);
+    localStorage.setItem("comments", JSON.stringify(comments));
+
+    const newdiv = document.createElement("div");
+    newdiv.innerHTML = `
+        <div class="comment">   
+            <h3>Anonymous</h3>
+            <i style="color: gold;" class="fa-solid fa-star"><span class="rating_span">${rating}</span></i>
+            <p>${textareaValue}</p>
+        </div>`;
+    document.querySelector(".comment_list").appendChild(newdiv);
+
+    document.getElementById("comment").value = '';
+});
+////////////////////////////////////////////////////////////////////////////////////////// add movie to my list 
 const add_icon = document.getElementById("add_icon");
 const add = "../assets/movies/icons/add.svg";
 const added = "../assets/movies/icons/added.svg";
 let mylist = JSON.parse(localStorage.getItem("mylist")) || [];
-let pas = mylist.length; 
 
-if (mylist.find(movie => movie.id === selectedMovie.id)) {
+
+if (mylist.some(movie => movie.id === selectedMovie.id)) {
     add_icon.src = added;
 } else {
     add_icon.src = add;
@@ -261,11 +278,15 @@ add_icon.addEventListener("click", () => {
             mylist.push(selectedMovie);
             localStorage.setItem("mylist", JSON.stringify(mylist)); 
     } else {
+        mylist.pop(selectedMovie);
+        localStorage.setItem("mylist", JSON.stringify(mylist)); 
         add_icon.src = add;
     }
 });
 </script>
 <script>
+    ////////////////////////////////////////////////////////////////////////////////////////// dark mode
+
     const icon = document.querySelector(".icon_dark");
     icon.onclick = function() {
     if(icon.src.endsWith("moon.png")){
@@ -289,6 +310,8 @@ add_icon.addEventListener("click", () => {
     }
 </script>
 <script>
+    ////////////////////////////////////////////////////////////////////////////////////////// Slide auto 
+
    function scrollbyme(){
     const towatch = document.querySelector(".towatch");
     let scrollAmount = 0 ;
@@ -315,6 +338,8 @@ add_icon.addEventListener("click", () => {
    scrollbyme() ;
 </script>
 <script>
+    ////////////////////////////////////////////////////////////////////////////////////////// rating
+
     const stars = document.querySelectorAll(".fa-star");
     stars.forEach((star , index) =>{
         star.addEventListener("click" , ()=>{
@@ -334,11 +359,13 @@ add_icon.addEventListener("click", () => {
     })
 </script>
 <script>
+    ////////////////////////////////////////////////////////////////////////////////////////// burger icon
+
         const hamburger = document.querySelector(".hamburger");
-    const nav_menu = document.querySelector(".nav_menu");
-    hamburger.addEventListener("click", () => {
-       hamburger.classList.toggle("active");
-       nav_menu.classList.toggle("active");
+        const nav_menu = document.querySelector(".nav_menu");
+        hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        nav_menu.classList.toggle("active");
     }); 
 </script>
 

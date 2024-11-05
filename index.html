@@ -23,8 +23,9 @@
         </ul>
     </nav>
     <div class="icons">
-        <img src="assets/user.svg" alt="">
+        <img src="assets/user.svg" id="brefbtn" alt="">
         <img src="assets/movies/icons/moon.png" class="icon_dark" style="cursor: pointer; " alt="">
+        <h1 class="brefh1"></h1>
         <div class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -93,47 +94,61 @@
             <h1>Popular <span>Now</span></h1>
             <div class="inputandbtn">
                 <input type="text" class="input_popular" id = "input_popular" placeholder="Search for a movie .....">
-                <button class="search_btn">Search</button>
+                <div class="filterinputs">
+                    <section>
+                    <select id="filterInput">
+                      <option value="">All</option>
+                      <option value="Fantasy">Fantasy</option>
+                      <option value="Action">Action</option>
+                      <option value="Historical">Historical</option>
+                      <option value="Western">Western</option>
+                      <option value="Drama">Drama</option>
+                      <option value="Disaster">Disaster</option>
+                      <option value="Thriller">Thriller</option>
+                      <option value="Horror">Horror</option>
+                    </select>
+                    </section>
+                  </div>
             </div>
         </div>
         <div class="popular_section">
-            <div class="pop movie pop1"  id="1">
+            <div class="pop movie pop1"  id="1" category = "Fantasy" ;>
                 <img src="assets/movies/the_rings_of_power.svg" alt="">
                 <h3 class="header_movie">The rings </h3>
             </div>
-            <div class="pop movie pop2" id="2">
+            <div class="pop movie pop2" id="2" category = "Action" >
                 <img src="assets/movies/prison_break.svg" alt="">
                 <h3 class="header_movie">Prisonbreak</h3>
             </div>
-            <div class="pop movie pop3" id="3">
+            <div class="pop movie pop3" id="3" category = "Historical" >
                 <img src="assets/movies/vikings.svg" alt="">
                 <h3 class="header_movie">Vikings</h3>
             </div>
-            <div class="pop movie pop4" id="4">
+            <div class="pop movie pop4" id="4" category = "Western" >
                 <img src="assets/movies/stagecoach.svg" alt="">
                 <h3 class="header_movie">Stagecoach</h3>
             </div>
-            <div class="pop movie pop5" id="5">
+            <div class="pop movie pop5" id="5" category = "Disaster" >
                 <img src="assets/movies/meteor.svg" alt="">
                 <h3 class="header_movie">Meteor</h3>
             </div>
-            <div class="pop movie pop6" id="6">
+            <div class="pop movie pop6" id="6" category = "Action" >
                 <img src="assets/movies/venom.svg" alt="">
                 <h3 class="header_movie">Venom</h3>
             </div>
-            <div class="pop movie pop7" id="7">
+            <div class="pop movie pop7" id="7" category = "Horror" >
                 <img src="assets/movies/terrifier3.svg" alt="">
                 <h3 class="header_movie">Terrifier3</h3>
             </div>
-            <div class="pop movie pop8" id="8">
+            <div class="pop movie pop8" id="8" category = "Thriller" >
                 <img src="assets/movies/the_substance.svg" alt="">
                 <h3 class="header_movie">The Subs</h3>
             </div>
-            <div class="pop movie pop9" id="9">
+            <div class="pop movie pop9" id="9" category = "Drama" >
                 <img src="assets/movies/the_montecristo.svg" alt="">
                 <h3 class="header_movie" style="text-align: center;">Montecristo</h3>
             </div>
-            <div class="pop movie pop10" id="10">
+            <div class="pop movie pop10" id="10" category = "Drama" >
                 <img src= "assets/movies/tulsa_king.svg" alt="">
                 <h3 class="header_movie">TulsaKing</h3>
             </div>

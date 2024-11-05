@@ -53,14 +53,16 @@
     </footer>
 </body>
 <script>
-    const likedMovie = JSON.parse(localStorage.getItem("mylist"));
+    ////////////////////////////////////////////////////////////////////////////////////////// get my added movies
+
+    const listedMovie = JSON.parse(localStorage.getItem("mylist"));
     const div = document.querySelector(".list");
     const movies = JSON.parse(localStorage.getItem("moviesData"));
     const movies_length = movies.length;
     let array = new Array(movies_length);
 
     for (let i = 0; i < movies_length; i++) {
-        array[i] = likedMovie[i];
+        array[i] = listedMovie[i];
     }
 
     const filteredArray = array.filter(Boolean);
@@ -77,6 +79,7 @@
 
         div.appendChild(div2);
     });
+////////////////////////////////////////////////////////////////////////////////////////// delete from mylist
 
     document.querySelectorAll(".delete_icon").forEach(icon => {
         icon.addEventListener("click", (e) => {
@@ -92,6 +95,8 @@
    
 </script>
 <script>
+    ////////////////////////////////////////////////////////////////////////////////////////// dark mode
+
     const icon = document.querySelector(".icon_dark");
     icon.onclick = function() {
     if(icon.src.endsWith("moon.png")){
@@ -115,11 +120,13 @@
     }
 </script>
 <script>
+    ////////////////////////////////////////////////////////////////////////////////////////// burger
+
     const hamburger = document.querySelector(".hamburger");
-const nav_menu = document.querySelector(".nav_menu");
-hamburger.addEventListener("click", () => {
-   hamburger.classList.toggle("active");
-   nav_menu.classList.toggle("active");
+    const nav_menu = document.querySelector(".nav_menu");
+    hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    nav_menu.classList.toggle("active");
 }); 
 </script>
 </html>

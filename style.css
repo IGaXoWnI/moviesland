@@ -299,6 +299,7 @@ span{
 .inputandbtn{
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 50%;
     gap: 10px;
 }
@@ -533,7 +534,7 @@ form{
     margin: auto;
 }
 .list_section{
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
 }
@@ -576,7 +577,7 @@ form{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2 , 1fr);
-    
+        overflow: hidden;
     }
     .left_section{
         grid-column: 1;
@@ -655,6 +656,7 @@ form{
         height: auto;
         width: auto;
     }
+
 
 
 }
@@ -753,4 +755,15 @@ form{
     height: auto;
     width: auto;
 }
+}
+
+.hidden {
+    display: none;
+  }
+.filterinputs select {
+    width: 100%; 
+    padding: 11px; 
+    border: 1px solid #ccc; 
+    border-radius: 20px; /* Rounded corners for the select */
+    font-size: 14px; /* Font size for the select */
 }
